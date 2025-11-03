@@ -7,7 +7,7 @@ spec:
   generators:
   - list:
       elements:
-      - aoa
+      - aoa: aoa
   template:
     metadata:
       name: aoa
