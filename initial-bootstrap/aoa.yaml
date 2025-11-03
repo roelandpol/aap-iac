@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: aoa
   namespace: aap-argo
+  labels:
+    app.kubernetes.io/instance: null
 spec:
   generators:
   - list:
