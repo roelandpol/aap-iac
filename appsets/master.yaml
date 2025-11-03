@@ -17,6 +17,8 @@ spec:
         repoURL: https://github.com/roelandpol/aap-bootstrap.git
         targetRevision: HEAD
         path: appsets
+        directory:
+          include: '*.yaml'
       destination:
         server: https://kubernetes.default.svc
         namespace: aap-argo
