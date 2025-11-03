@@ -10,7 +10,7 @@ spec:
       - aoa: aoa
   template:
     metadata:
-      name: aoa
+      name: apps
     spec:
       project: default
       source:
