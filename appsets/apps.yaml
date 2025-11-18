@@ -6,12 +6,12 @@ spec:
   generators:
     - matrix:
         generators:
+          - clusters: {}
           - git:
               repoURL: '{{ metadata.annotations.gitRepo }}'
               revision: '{{ metadata.annotations.gitRevision }}'
               directories:
-                - path: apps/*
-          - clusters: {}
+                - path: apps/*          
   template:
     metadata:
       name: '{{path.basename}}'
