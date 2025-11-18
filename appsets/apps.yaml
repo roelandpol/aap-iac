@@ -5,11 +5,14 @@ metadata:
   namespace: aap-argo
 spec:
   generators:
-    - git:
-        revision: HEAD
-        repoURL: https://github.com/roelandpol/aap-iac.git
-        directories:
-          - path: apps/*
+    - matrix:
+        generators:
+          - git:
+              revision: HEAD
+              repoURL: https://github.com/roelandpol/aap-iac.git
+              directories:
+                - path: apps/*
+          - clusters: {}
   template:
     metadata:
       name: '{{path.basename}}'

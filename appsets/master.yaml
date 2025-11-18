@@ -14,10 +14,10 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/roelandpol/aap-iac.git
+        repoURL: {{ gitRepo }}
         targetRevision: HEAD
         path: appsets
         directory:
           include: '*.yaml'
-        destination: '{{ name }}'
-        namespace: aap-argo
+      destination:
+        namespace: {{ argoNamespace }}
