@@ -7,10 +7,7 @@ spec:
   syncPolicy:
     preserveResourcesOnDeletion: false
   generators:
-  - clusters:
-      selector:
-        matchLabels:
-          created-by: plol
+  - clusters: {}
   template:
     metadata:
       name: master
