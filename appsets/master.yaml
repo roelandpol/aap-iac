@@ -14,10 +14,10 @@ spec:
     spec:
       project: default
       source:
-        repoURL: '{{ gitRepo }}'
+        repoURL: {{ gitRepo }}
         targetRevision: HEAD
         path: appsets
         directory:
           include: '*.yaml'
       destination:
-        namespace: '{{ argoNamespace }}'
+        namespace: {{ argoNamespace }}
