@@ -7,9 +7,10 @@ spec:
   syncPolicy:
     preserveResourcesOnDeletion: false
   generators:
-  - list:
-      elements:
-      - appset: master
+  - clusters:
+      selector:
+        matchLabels:
+          argocd.argoproj.io/secret-type: cluster
   template:
     metadata:
       name: master
@@ -21,6 +22,5 @@ spec:
         path: appsets
         directory:
           include: '*.yaml'
-      destination:
-        server: https://kubernetes.default.svc
+        destination: '{{ name }}'
         namespace: aap-argo
