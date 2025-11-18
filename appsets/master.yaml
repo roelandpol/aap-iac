@@ -14,10 +14,10 @@ spec:
     spec:
       project: default
       source:
-        repoURL: {{ metadata.annotations.gitRepo }}
+        repoURL: '{{ metadata.annotations.gitRepo }}'
         targetRevision: HEAD
         path: appsets
         directory:
           include: '*.yaml'
       destination:
-        namespace: {{ metadata.annotations.argoNamespace }}
+        namespace: '{{ metadata.annotations.argoNamespace }}'
