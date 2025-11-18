@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: master
-  namespace: aap-argo
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: false
@@ -15,7 +14,7 @@ spec:
       project: default
       source:
         repoURL: '{{ metadata.annotations.gitRepo }}'
-        targetRevision: HEAD
+        targetRevision: '{{ metadata.annotations.gitRevision }}'
         path: appsets
         directory:
           include: '*.yaml'

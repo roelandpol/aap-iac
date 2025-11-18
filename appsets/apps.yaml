@@ -2,14 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: apps
-  namespace: aap-argo
 spec:
   generators:
     - matrix:
         generators:
           - git:
-              revision: HEAD
-              repoURL: https://github.com/roelandpol/aap-iac.git
+              repoURL: '{{ metadata.annotations.gitRepo }}'
+              revision: '{{ metadata.annotations.gitRevision }}'
               directories:
                 - path: apps/*
           - clusters: {}
@@ -19,11 +18,11 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/roelandpol/aap-iac.git
-        targetRevision: main
+        repoURL: '{{ metadata.annotations.gitRepo }}'
+        targetRevision: '{{ metadata.annotations.gitRevision }}'
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: aap
+        namespace: '{{ metadata.annotations.aapNamespace }}'
       syncPolicy:
         automated: {}
