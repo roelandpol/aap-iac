@@ -11,7 +11,7 @@ spec:
               repoURL: '{{ metadata.annotations.gitRepo }}'
               revision: '{{ metadata.annotations.gitRevision }}'
               directories:
-                - path: apps/*          
+                - path: apps/{{ metadata.annotations.appsEnv }}/*          
   template:
     metadata:
       name: '{{path.basename}}'
